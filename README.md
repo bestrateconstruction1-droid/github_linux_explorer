@@ -17,8 +17,8 @@ Linux Explorer is a small, read-only file and folder browser for Linux. It was b
 You need Linux and Python 3 (tested with Python 3.14). Nothing else to install.
 
 ```bash
-git clone https://github.com/bestrateconstruction1-droid/linux-explorer.git
-cd linux-explorer
+git clone https://github.com/bestrateconstruction1-droid/github_linux_explorer.git
+cd github_linux_explorer
 ./install.sh
 ```
 
