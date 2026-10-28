@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+sample-lab/lab/
+.DS_Store

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux Explorer</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Linux Explorer</h1>
+  <form id="pathForm" class="pathbar" autocomplete="off">
+    <button type="button" id="upBtn" title="Go up one folder (cd ..)">↑ Up</button>
+    <input id="pathInput" aria-label="Folder path" spellcheck="false" placeholder="/home/you">
+    <button type="submit">Go</button>
+    <label class="check"><input type="checkbox" id="hiddenBox"> Hidden files</label>
+  </form>
+</header>
+
+<div class="layout">
+  <nav class="places" aria-label="Important places"><h2>Places</h2><ul id="places"></ul></nav>
+
+  <main>
+    <section class="cmd" aria-live="polite">
+      <span class="cmd-label">The command for what you see</span>
+      <code id="cmdText"></code>
+      <button type="button" id="copyBtn">Copy</button>
+    </section>
+
+    <form id="searchForm" class="search" autocomplete="off">
+      <input id="searchInput" aria-label="Search" placeholder="Search this folder and everything inside it…" maxlength="200">
+      <select id="searchMode" aria-label="Search by">
+        <option value="name">File name</option>
+        <option value="content">Text inside files</option>
+      </select>
+      <button type="submit">Search</button>
+      <button type="button" id="clearSearch" hidden>Back to folder</button>
+    </form>
+
+    <p id="notice" class="notice" hidden></p>
+    <div id="view"></div>
+
+    <details class="legend">
+      <summary>What do the letters in Permissions mean?</summary>
+      <p><code>-rwxr-xr--</code> is read in four parts. The first character is the type (<code>-</code> file, <code>d</code> folder, <code>l</code> link). Then three groups of three: <strong>owner</strong>, <strong>group</strong>, <strong>everyone else</strong>. In each group <code>r</code> = read, <code>w</code> = write, <code>x</code> = run (or enter, for a folder), and <code>-</code> = not allowed.</p>
+      <p>So <code>-rwxr-xr--</code> means: the owner can read, change and run it, the group can read and run it, and everyone else can only read it. Click any item to see this spelled out.</p>
+    </details>
+  </main>
+
+  <aside class="side" id="side" aria-live="polite"><p class="hint">Click a file to preview it, or a folder to open it. Everything here is read-only: nothing can be changed or deleted.</p></aside>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
